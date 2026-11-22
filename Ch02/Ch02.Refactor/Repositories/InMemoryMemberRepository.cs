@@ -1,0 +1,13 @@
+using EduHub.Ch02.Domain;
+
+namespace EduHub.Ch02.Repositories;
+
+public class InMemoryMemberRepository : IMemberRepository
+{
+    private readonly List<Member> _members = new();
+
+    public Member? GetById(Guid id) => _members.FirstOrDefault(m => m.Id == id);
+    public IReadOnlyList<Member> GetByClub(Guid clubId) =>
+        _members.Where(m => m.ClubId == clubId).ToList();
+    public void Add(Member member) => _members.Add(member);
+}
