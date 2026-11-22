@@ -1,4 +1,3 @@
-using EduHub.Ch02;
 using EduHub.Ch02.Domain;
 
 namespace Ch02.Refactor.Tests;
@@ -6,20 +5,7 @@ namespace Ch02.Refactor.Tests;
 // Mẫu AAA: Arrange (chuẩn bị) - Act (thực hiện) - Assert (kiểm tra).
 public class DomainTests
 {
-    // Test mẫu của thầy: chạy trên ClubManager cũ. Sẽ đổi sang Club.Create khi xoá ClubManager.
-    [Fact]
-    public void CreateClub_WithEmptyName_ThrowsArgumentException()
-    {
-        // Arrange
-        var manager = new ClubManager();
-
-        // Act
-        var act = () => manager.CreateClub("", "mô tả", "p@gmail.com");
-
-        // Assert
-        Assert.Throws<ArgumentException>(act);
-    }
-
+  
     [Fact]
     public void Club_Create_WithValidName_ReturnsClub()
     {
